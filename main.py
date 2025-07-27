@@ -18,8 +18,7 @@ def main(big_query_client=client):
     load_job = big_query_client.load_table_from_uri(
         uri, table_id, job_config=job_config
     )
-    load_job.result()  
-
+    load_job.result()
     destination_table = big_query_client.get_table(table_id)
     return {"data": destination_table.num_rows}
 
